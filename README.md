@@ -4,9 +4,11 @@ Training a robot manipulation policy using human egocentric video data from the 
 
 ## Demo
 
-https://github.com/user-attachments/assets/scale_visualization.mp4
+![Demo visualization](demo_preview.jpg)
 
-*Left: Egocentric video from Scale EgoVerse dataset. Right: 3D visualization of extracted hand keypoints (wrist, thumb tip, index fingertip) alongside the MARS robot arm, both in camera-relative coordinates.*
+*Left: Egocentric video from Scale EgoVerse dataset. Right: 3D visualization of extracted hand keypoints (wrist, thumb tip, index fingertip) alongside the MARS robot arm, both in camera-relative coordinates. Full video: [scale_visualization.mp4](scale_visualization.mp4)*
+
+> **Note:** There is a known misalignment in the 3D visualization coordinates due to camera position offset that was not corrected in this demo. The training pipeline accounts for this offset correctly.
 
 ## Overview
 

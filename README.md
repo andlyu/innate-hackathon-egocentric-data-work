@@ -4,11 +4,11 @@ Training a robot manipulation policy using human egocentric video data from the 
 
 ## Demo
 
-![Demo visualization](demo_preview.jpg)
+https://github.com/andlyu/innate-hackathon-egocentric-data-work/raw/main/demo_clip.mp4
 
-*Left: Egocentric video from Scale EgoVerse dataset. Right: 3D visualization of extracted hand keypoints (wrist, thumb tip, index fingertip) alongside the MARS robot arm, both in camera-relative coordinates. Full video: [scale_visualization.mp4](scale_visualization.mp4)*
+*Left: Egocentric video from Scale EgoVerse dataset. Right: 3D visualization of extracted hand keypoints (wrist, thumb tip, index fingertip) alongside the MARS robot arm, both in camera-relative coordinates.*
 
-> **Note:** There is a known misalignment in the 3D visualization coordinates due to camera position offset that was not corrected in this demo. The training pipeline accounts for this offset correctly.
+> **Note:** There is a known coordinate misalignment in the visualization between the robot and human data. The robot side computes EE position relative to the camera using translation only (subtracting camera offset from FK output), while the Scale side performs a full rotation + translation into the head camera frame via `R_inv @ (kp - head_pos)`. This means the two representations use slightly different axis orientations. During training, per-dimension normalization partially compensates for this, but fixing `robot_fk()` to also rotate into the camera optical frame would improve alignment.
 
 ## Overview
 
